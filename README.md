@@ -2,7 +2,7 @@
 Unfilter the emotion behind every voice!
 
 ## IDEA PITCH:
-- Theres always a little truth behind every "Just Kidding"
+- There's always a little truth behind every "Just Kidding"
 - A little knowledge behind every "I dont know"
 - A little emotion behind every "I dont care"
 - and A little pain behind every "its ok"
