@@ -1,11 +1,79 @@
-/**
-* Template Name: Techie - v4.3.0
-* Template URL: https://bootstrapmade.com/techie-free-skin-bootstrap-3/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
 (function() {
-  "use strict";
+  "use strict";  
+
+  const recordBtn = document.querySelector('#button')
+  const micBtn =  document.querySelector('#speech')
+  const waveBtn = document.querySelector('#mic')
+  const suggest = document.querySelector('#suggestion')
+  const loadBtn = document.querySelector('#load')
+  const speechToText = document.querySelector('#speechtotext')
+  let output = document.querySelector("#content");
+  const emotion =  document.querySelector("#emotion-text");
+  const emoji =  document.querySelector("#emoji");
+  const test =  document.querySelector("#suggestion .suggestion-box");
+  
+/** Scroll on "Start Recording" button press on home button */
+  recordBtn.addEventListener('click', () => {
+    window.location.href = "#pricing"
+  })
+
+    /** Show wave, suggestions, loading on Mic Press */
+
+  micBtn.addEventListener('click', () => {
+    runSpeechRecognition();
+    changeSuggestionText();
+    waveBtn.style.visibility = "visible";
+    suggest.style.visibility = "visible";
+    loadBtn.style.visibility = "visible";
+    speechToText.style.visibility = "visible";
+    output.style.visibility = "visible";
+    emotion.style.visibility = "visible";
+    emoji.style.visibility = "visible";
+  })
+
+  function runSpeechRecognition() {
+
+    const displayTxt = document.querySelector("#display-text");
+    // get output div reference
+    var output = document.querySelector("#content");
+    // get action element reference
+    var action = document.querySelector("#mic");
+        // new speech recognition object
+        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+        var recognition = new SpeechRecognition();
+    
+        // This runs when the speech recognition service starts
+        recognition.onstart = function() {
+            displayTxt.innerHTML = "<small>listening, please speak <b>one</b> word at a time...</small>";
+        };
+        
+        recognition.onspeechend = function() {
+            displayTxt.innerHTML = "<small>stopped listening, detecting emotion...</small>";
+            recognition.stop();
+        }
+      
+        // This runs when the speech recognition service returns result
+        recognition.onresult = function(event) {
+            var transcript = event.results[0][0].transcript;
+            var confidence = event.results[0][0].confidence;
+            output.innerHTML = transcript;
+            output.classList.remove("hide");
+        };
+         // start recognition
+         recognition.start();
+  }
+
+  function changeSuggestionText(){
+
+    console.log(output.innerHTML)
+
+    output.innerHTML === test.innerHTML;
+    let testing = output.innerHTML;
+    test.innerHTML = "Hello"
+    console.log(test)
+ 
+  }
 
   /**
    * Easy selector helper function
@@ -111,25 +179,6 @@
   }
 
   /**
-   * Mobile nav toggle
-   */
-  on('click', '.mobile-nav-toggle', function(e) {
-    select('#navbar').classList.toggle('navbar-mobile')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
-
-  /**
-   * Mobile nav dropdowns activate
-   */
-  on('click', '.navbar .dropdown > a', function(e) {
-    if (select('#navbar').classList.contains('navbar-mobile')) {
-      e.preventDefault()
-      this.nextElementSibling.classList.toggle('dropdown-active')
-    }
-  }, true)
-
-  /**
    * Scrool with ofset on links with a class name .scrollto
    */
   on('click', '.scrollto', function(e) {
@@ -167,89 +216,6 @@
       preloader.remove()
     });
   }
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 40
-      },
-
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 40
-      }
-    }
-  });
-
-  /**
-   * Porfolio isotope and filter
-   */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item'
-      });
-
-      let portfolioFilters = select('#portfolio-flters li', true);
-
-      on('click', '#portfolio-flters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
-
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        portfolioIsotope.on('arrangeComplete', function() {
-          AOS.refresh()
-        });
-      }, true);
-    }
-
-  });
-
-  /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
-
-  /**
-   * Portfolio details slider
-   */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
 
   /**
    * Animation on scroll
