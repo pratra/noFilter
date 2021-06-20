@@ -11,7 +11,6 @@
   let output = document.querySelector("#content");
   const emotion =  document.querySelector("#emotion-text");
   const emoji =  document.querySelector("#emoji");
-  const test =  document.querySelector("#suggestion .suggestion-box");
   
 /** Scroll on "Start Recording" button press on home button */
   recordBtn.addEventListener('click', () => {
@@ -22,9 +21,8 @@
 
   micBtn.addEventListener('click', () => {
     runSpeechRecognition();
-    changeSuggestionText();
     waveBtn.style.visibility = "visible";
-    suggest.style.visibility = "visible";
+    // suggest.style.visibility = "visible";
     loadBtn.style.visibility = "visible";
     speechToText.style.visibility = "visible";
     output.style.visibility = "visible";
@@ -63,18 +61,6 @@
          // start recognition
          recognition.start();
   }
-
-  function changeSuggestionText(){
-
-    console.log(output.innerHTML)
-
-    output.innerHTML === test.innerHTML;
-    let testing = output.innerHTML;
-    test.innerHTML = "Hello"
-    console.log(test)
- 
-  }
-
   /**
    * Easy selector helper function
    */

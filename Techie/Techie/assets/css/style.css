@@ -188,7 +188,8 @@ h6 {
   color: #fff;
 }
 
-#hero h2 {
+#hero h2,
+h4 {
   color: rgba(255, 255, 255, 0.8);
   margin: 10px 0 0 0;
   font-size: 20px;
@@ -285,7 +286,7 @@ h6 {
   100% {
     transform: translateY(-10px);
   }
-} 
+}
 
 /*--------------------------------------------------------------
 # Sections General
@@ -383,7 +384,8 @@ section {
   position: absolute;
   right: 20px;
   top: 12px;
-} */
+}
+*/
 
 /*--------------------------------------------------------------
 # Portfolio Details
@@ -820,7 +822,7 @@ svg rect {
   margin-bottom: 30px;
 }
 
-.text-result{
+.text-result {
   background-color: #5846f9;
   color: white;
   width: 200px;
@@ -874,7 +876,6 @@ svg rect {
   background: #5846f9;
   color: #fff;
 }
-
 
 /*--------------------------------------------------------------
 # Footer
