@@ -7,7 +7,7 @@ Unfilter the emotion behind every voice!
 - A little emotion behind every "I don't care"
 - and A little pain behind every "It's ok"   
 
-**BUT** Let's keep things real with **no filter** with our innovation of **#noFilter**
+**BUT** Let's keep things real with **no filter** with our innovation of **#noFilter**!
 
 ## Live Demo: https://pratra.github.io/noFilter/
 ## Pitch: https://youtu.be/XF9df5e2hjA
