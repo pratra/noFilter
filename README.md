@@ -1,4 +1,4 @@
-# HipHackArray - ##noFilter
+# HipHackArray - #noFilter
 Unfilter the emotion behind every voice!
 
 ## IDEA PITCH:
